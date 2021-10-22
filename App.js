@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Keyboard, ScrollView, StyleSheet, Text, View } from 'react-native';
 import TaskInputField from './components/TaskInputField';
 import TaskItem from './components/TaskItem';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
@@ -10,6 +11,7 @@ export default function App() {
     if (task == null) return;
     setTasks([...tasks, task]);
     Keyboard.dismiss();
+
   }
 
   const deleteTask = (deleteIndex) => {
@@ -38,10 +40,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1E1A3C',
+    backgroundColor: '#f5f4ef',
   },
   heading: {
-    color: '#fff',
+    color: '#CEAA9A',
     fontSize: 20,
     fontWeight: '600',
     marginTop: 30,
