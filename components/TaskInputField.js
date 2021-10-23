@@ -60,7 +60,7 @@ export default TaskInputField
 const styles = StyleSheet.create({
   container: {
     borderColor: '#fff',
-    backgroundColor: '#CEAA9A',
+    backgroundColor: '#3E3364',
     borderWidth: 1,
     marginHorizontal: 20,
     borderRadius: 12,

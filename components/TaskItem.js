@@ -7,10 +7,10 @@ const TaskItem = (props) => {
     console.log("hola, ", props)
   return (
     <View style={styles.container}>
-      <View style={styles.indexContainer}>
+      <View style={(props.task.status) ? styles.indexContainerDone : styles.indexContainer}>
         <Text style={styles.index}>{props.index}</Text>
       </View>
-      <View style={styles.taskContainer}>
+      <View style={(props.task.status) ? styles.taskContainerDone : styles.taskContainer}>
         <Text style={(props.task.status) ? styles.taskDone : styles.task}>{props.task.name}</Text>
         <TouchableOpacity onPress={() => props.deleteTask()}>
           <MaterialIcons
@@ -41,6 +41,15 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   indexContainer: {
+    backgroundColor: '#3E3364',
+    borderRadius: 12,
+    marginRight: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 50,
+    height: 50,
+  },
+  indexContainerDone: {
     backgroundColor: '#CEAA9A',
     borderRadius: 12,
     marginRight: 10,
@@ -54,6 +63,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   taskContainer: {
+    backgroundColor: '#3E3364',
+    borderRadius: 12,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flex: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    minHeight: 50,
+  },
+  taskContainerDone: {
     backgroundColor: '#CEAA9A',
     borderRadius: 12,
     flexDirection: 'row',

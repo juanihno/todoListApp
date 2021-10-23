@@ -101,7 +101,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f4ef',
+    backgroundColor: '#1E1A3C',
   },
   heading: {
     color: '#CEAA9A',
