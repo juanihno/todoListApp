@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function App() {
+
   const [tasks, setTasks] = useState([]);
   
   const [ appInit, setAppInit ] = useState( true )
@@ -28,9 +29,9 @@ export default function App() {
   const addTask = (task) => {
     if (task == null) return;
     const id = new Date().getTime().toString()
-    const item = { id: id, name: task, status: false }
+     task = { id: id, name: task, status: false }
     setTasks([...tasks, task]);
-    console.log(tasks)
+    //console.log(tasks)
     console.log(task)
     //console.log(item)
 
@@ -45,6 +46,18 @@ export default function App() {
     setTasks(tasks.filter((value, index) => index != deleteIndex));
 
   }
+  const markTaskDone = (id) => {
+    console.log(id)
+
+    tasks.forEach( (task) => {
+      if( task.id === id ) {
+        task.status = true }
+    })
+    console.log(tasks)
+
+    setTasks([...tasks])
+  }
+
   
   const storeData = async () => {
     const stringified = JSON.stringify( tasks )
@@ -63,6 +76,7 @@ export default function App() {
       console.log( error )
     }
   }
+  
 
 
   return (
@@ -73,7 +87,7 @@ export default function App() {
         tasks.map((task, index) => {
           return (
             <View key={index} style={styles.taskContainer}>
-              <TaskItem index={index + 1} task={task} deleteTask={() => deleteTask(index)}/>
+              <TaskItem index={index + 1} task={task} deleteTask={() => deleteTask(index)} markTaskDone={() => markTaskDone(task.id)}/>
             </View>
           );
         })

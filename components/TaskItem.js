@@ -4,13 +4,14 @@ import { MaterialIcons } from '@expo/vector-icons'
 
 
 const TaskItem = (props) => {
+    console.log("hola, ", props)
   return (
     <View style={styles.container}>
       <View style={styles.indexContainer}>
         <Text style={styles.index}>{props.index}</Text>
       </View>
       <View style={styles.taskContainer}>
-        <Text style={styles.task}>{props.task}</Text>
+        <Text style={(props.task.status) ? styles.taskDone : styles.task}>{props.task.name}</Text>
         <TouchableOpacity onPress={() => props.deleteTask()}>
           <MaterialIcons
             style={styles.delete}
@@ -19,9 +20,9 @@ const TaskItem = (props) => {
             color="#fff"
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => props.deleteTask()}>
+        <TouchableOpacity onPress={() => props.markTaskDone(props.task.id)}>
           <MaterialIcons
-            style={styles.delete}
+            style={styles.done}
             name="done"
             size={18}
             color="#fff"
@@ -77,6 +78,9 @@ const styles = StyleSheet.create({
 
   },
   delete: {
-    marginLeft: 10,
+    marginLeft: 0,
+  },
+  done: {
+    marginLeft: 0,
   },
 })
