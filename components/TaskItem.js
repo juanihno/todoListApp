@@ -19,6 +19,14 @@ const TaskItem = (props) => {
             color="#fff"
           />
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => props.deleteTask()}>
+          <MaterialIcons
+            style={styles.delete}
+            name="done"
+            size={18}
+            color="#fff"
+          />
+        </TouchableOpacity>
       </View>
     </View>
   )
@@ -59,6 +67,14 @@ const styles = StyleSheet.create({
     color: '#fff',
     width: '90%',
     fontSize: 16,
+
+  },
+  taskDone: {
+    color: '#fff',
+    width: '90%',
+    fontSize: 16,
+    textDecorationLine: "line-through",
+
   },
   delete: {
     marginLeft: 10,

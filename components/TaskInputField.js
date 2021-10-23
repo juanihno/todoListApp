@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     height: 50,
     flex: 1,
+    
   },
   button: {
     height: 30,
